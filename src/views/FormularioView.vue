@@ -37,7 +37,7 @@ function handleSubmitForm(event) {
         formDataInvalid.value.invalidContraseña = "El campo contraseña es requerido"
     } else if (!formData.value.repContraseña.trim()) {
         formDataInvalid.value.invalidRepContraseña = "El campo repetir contraseña es requerido"
-    } else if (formData.value.contraseña !== formData.value.repContraseña) {
+    } else if (formData.value.contraseña.trim() !== formData.value.repContraseña.trim()) {
         formDataInvalid.value.invalidContraseñas = "Las contraseñas no coinciden"
     } else {
         formDataInvalid.value.invalidNombre = ""
