@@ -25,18 +25,17 @@ const formDataInvalid = ref({
 function handleSubmitForm(event) {
     event.preventDefault()
 
-    if (!formData.value.nombre) {
+    if (!formData.value.nombre.trim()) {
         formDataInvalid.value.invalidNombre = "El campo nombre es requerido"
-    } else if (formData.value.nombre && !regexSoloLetras.test(formData.value.nombre)) {
+    } else if (formData.value.nombre.trim() && !regexSoloLetras.test(formData.value.nombre.trim())) {
         formDataInvalid.value.invalidNombreFormat = "El campo nombre no puede contener números"
-    }
-    else if (!formData.value.correo) {
+    } else if (!formData.value.correo.trim()) {
         formDataInvalid.value.invalidCorreo = "El campo correo es requerido"
-    } else if (formData.value.correo && !regexCorreo.test(formData.value.correo)) {
+    } else if (formData.value.correo && !regexCorreo.test(formData.value.correo.trim())) {
         formDataInvalid.value.invalidCorreoFormat = "El formato del correo es inválido"
-    } else if (!formData.value.contraseña) {
+    } else if (!formData.value.contraseña.trim()) {
         formDataInvalid.value.invalidContraseña = "El campo contraseña es requerido"
-    } else if (!formData.value.repContraseña) {
+    } else if (!formData.value.repContraseña.trim()) {
         formDataInvalid.value.invalidRepContraseña = "El campo repetir contraseña es requerido"
     } else if (formData.value.contraseña !== formData.value.repContraseña) {
         formDataInvalid.value.invalidContraseñas = "Las contraseñas no coinciden"
